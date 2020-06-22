@@ -1,0 +1,28 @@
+{% for idea in ideas %}
+<div class="idea">
+    <img 
+    src="{{idea.image}}" 
+    alt="Imagem de {{idea.title}}">
+    
+    <div class="content">
+        <h3>{{idea.title}}</h3>
+        <p>{{idea.category}}</p>
+        <div class="description">
+            {{idea.description}}
+        </div>
+        <div class="form-delete">
+            <a href="{{idea.link}}">Ir para a Ideia</a>
+       
+            <form method="POST" action="/?_method=DELETE" id="form-delete">
+                <input type="hidden" name="id" value={{idea.id}}>
+    
+                <button type="submit" class="button" id="button-delete">Deletar</button>
+            </form>
+        </div>
+       
+    </div>
+</div>
+
+{% include 'confirm.html' %}
+
+{% endfor %}
